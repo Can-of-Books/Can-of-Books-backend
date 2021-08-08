@@ -16,6 +16,11 @@ const client = jwksClient({
   jwksUri: JWKSURI
 });
 
+app.get('/', (req, res) => {
+
+  res.send("Hello From My Server");
+});
+
 function getKey(header, callback) {
   client.getSigningKey(header.kid, function (err, key) {
     var signingKey = key.publicKey || key.rsaPublicKey;
