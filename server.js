@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
 
 const mongoose = require('mongoose');
-const bookSchema = require('./schema/Book.schema');
 const bookModel = require('./schema/Book.model');
 
 const app = express();
@@ -49,14 +48,19 @@ app.get('/test', (request, response) => {
   });
 })
 
+bookModel.seedUserBooks();
+
 app.get('/books', (req, res) => {
   const { email } = req.query;
-  userModel.find({ email: email }, (err, user) => {
-
-    if (user === null) {
+  bookModel.userModel.find({ email: email }, (err, user) => {
+    if (err || user.length == 0) {
       res.send('no user found');
-    } else {
-      res.json(user.books);
+    }
+    else {
+      user.forEach(item => {
+        res.json(item.books)
+        
+      })
     }
   });
 
