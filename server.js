@@ -5,12 +5,18 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const jwksClient = require('jwks-rsa');
+const mongoose = require('mongoose');
 
 const app = express();
-app.use(cors());
+
 
 const PORT = process.env.PORT;
 const JWKSURI = process.env.JWKSURI;
+const MONGO_DB_URL = process.env.MONGO_DB_URL;
+
+mongoose.connect(`${MONGO_DB_URL}/cats`, { useNewUrlParser: true, useUnifiedTopology: true });
+
+app.use(cors());
 
 const client = jwksClient({
   jwksUri: JWKSURI
