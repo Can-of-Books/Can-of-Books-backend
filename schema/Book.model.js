@@ -11,21 +11,21 @@ const userModel = mongoose.model("Book", userSchema);
 const seedUserBooks = () => {
   try {
     const user = new userModel({
-      email: "Amneh99el@gmail.com",
+      email: "alhillosarah@gmail.com",
       books: [
         {
           title: "Big Dream",
-          description: " ",
+          description: "A book talks about how to stay ambitious and commited to your dreams ",
           status: " ",
         },
         {
           title: "Earn Money",
-          description: " ",
+          description: "A book talks about how to earn money",
           status: " ",
         },
         {
           title: "Be Happy",
-          description: " ",
+          description: "The secret of a happy life ",
           status: " ",
         },
       ],
