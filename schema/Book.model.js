@@ -16,17 +16,17 @@ const seedUserBooks = () => {
       {
         title: "Big Dream",
         description: "A book talks about how to stay ambitious and commited to your dreams ",
-        status: " ",
+        status: "Book ",
       },
       {
         title: "Earn Money",
         description: "A book talks about how to earn money",
-        status: " ",
+        status: "Story ",
       },
       {
         title: "Be Happy",
         description: "The secret of a happy life ",
-        status: " ",
+        status: "Book ",
       },
     ],
   });
