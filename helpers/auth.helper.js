@@ -15,6 +15,4 @@ const getKey = (header, callback) => {
     });
 }
 
-module.exports = {
-    getKey
-  };
+module.exports = getKey;

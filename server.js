@@ -12,14 +12,14 @@ mongoose.connect(`${MONGO_DB_URL}/books`, { useNewUrlParser: true, useUnifiedTop
 app.use(cors());
 app.use(express.json());
 
-const { verifyToken } = require('./controllers/auth.controller'); 
+const verifyToken = require('./controllers/auth.controller'); 
 const {
   getBooks,
   createBook,
   deleteBook
 } = require('./controllers/book.controller');
 
-const { seedUserBooks } = require('./models/book.model');
+const seedUserBooks = require('./models/book.model');
 // seedUserBooks();
 
 app.get('/', (req, res) => res.send("Hello From My Server"));

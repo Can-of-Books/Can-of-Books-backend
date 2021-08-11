@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { getKey } = require('../helpers/auth.helper');
+const  getKey  = require('../helpers/auth.helper');
 
 
 const verifyToken = async (request, response) => {
@@ -12,6 +12,4 @@ const verifyToken = async (request, response) => {
     });
   };
   
-  module.exports = { 
-      verifyToken 
-    };
+  module.exports = verifyToken;

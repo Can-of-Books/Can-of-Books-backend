@@ -1,5 +1,5 @@
 
-const { bookModel } = require('../models/book.model');
+const bookModel = require('../models/book.model');
 
 
 
