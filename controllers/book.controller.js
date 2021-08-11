@@ -20,14 +20,13 @@ const getBooks = async (req, res) => {
 
 const createBook = async (req, res) => {
 
-    const { email,
+    const {
         title,
         description,
         status,
         img_url } = req.body;
 
     const newBookObj = new bookModel({
-        email: email,
         title: title,
         description: description,
         status: status,
@@ -47,8 +46,38 @@ const deleteBook = async (req, res) => {
     })
 }
 
+const updateBook = async (req, res) => {
+
+    const bookId = req.params.book_id; 
+  
+    const {
+        title,
+        description,
+        status,
+        img_url
+    } = req.body;
+  
+    
+    bookModel.findByIdAndUpdate(
+      { _id: bookId }, 
+      {
+        title: title,
+        description: description,
+        status: status,
+        img_url: img_url
+      }, 
+      { new: true }, 
+      (err, data) => {
+        res.json(data);
+      }
+    )
+  
+  }
+  
+
 module.exports = {
     getBooks,
     createBook,
-    deleteBook
+    deleteBook,
+    updateBook
 }

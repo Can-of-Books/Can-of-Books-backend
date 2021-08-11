@@ -16,7 +16,8 @@ const verifyToken = require('./controllers/auth.controller');
 const {
   getBooks,
   createBook,
-  deleteBook
+  deleteBook,
+  updateBook
 } = require('./controllers/book.controller');
 
 const { seedUserBooks } = require('./models/book.model');
@@ -31,6 +32,8 @@ app.get('/books', getBooks);
 app.post('/book', createBook);
 
 app.delete('/book/:book_id', deleteBook);
+
+app.put('/book/:book_id', updateBook);
 
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
