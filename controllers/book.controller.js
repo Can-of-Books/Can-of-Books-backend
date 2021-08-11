@@ -1,18 +1,18 @@
 
-const bookModel = require('../models/book.model');
+const { bookModel } = require('../models/book.model');
 
 
 
 const getBooks = async (req, res) => {
     const { email } = req.query;
 
-    bookModel.find({ email: email }, (err, userBooks) => {
+    bookModel.findOne({ email: email }, (err, userBooks) => {
 
         if (err) {
             res.send('No User Found');
         } else {
-          
-            res.send(userBooks);
+
+            res.json(userBooks);
         }
     });
 }
@@ -23,13 +23,15 @@ const createBook = async (req, res) => {
     const { email,
         title,
         description,
-        status } = req.body;
+        status,
+        img_url } = req.body;
 
     const newBookObj = new bookModel({
         email: email,
         title: title,
         description: description,
-        status: status
+        status: status,
+        img_url: img_url
     });
     newBookObj.save();
 

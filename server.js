@@ -19,12 +19,12 @@ const {
   deleteBook
 } = require('./controllers/book.controller');
 
-const seedUserBooks = require('./models/book.model');
+const { seedUserBooks } = require('./models/book.model');
 // seedUserBooks();
 
 app.get('/', (req, res) => res.send("Hello From My Server"));
 
-app.get('/test', verifyToken);
+// app.get('/test', verifyToken);
 
 app.get('/books', getBooks);
 
